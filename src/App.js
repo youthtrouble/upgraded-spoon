@@ -78,12 +78,11 @@ function App() {
 
   // Deletes a film by its ID
   const deleteFilm = async (id) => {
-    await fetch(`${API_URL}/delete-film`, {
+    await fetch(`${API_URL}/delete-film/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify({ id }),
     });
 
     setFilms(films.filter((film) => film.id !== id));
